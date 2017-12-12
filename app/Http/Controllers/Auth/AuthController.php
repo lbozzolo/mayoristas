@@ -41,11 +41,28 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'nombre.required' => 'El nombre es obligatorio',
+            'nombre.max' => 'El nombre no puede exceder los 255 caracteres',
+            'apellido.max' => 'El apellido no puede exceder los 255 caracteres',
+            'legajo.required' => 'El número de legajo es obligatorio',
+            'legajo.unique' => 'El número de legajo ingresado ya está registrado',
+            'email.required' => 'El email es obligatorio',
+            'email.email' => 'El email tiene un formato incorrecto',
+            'email.max' => 'El email no puede exceder los 255 caracteres',
+            'email.unique' => 'El email ingresado ya está registrado',
+            'password.required' => 'La contraseña es obligatoria',
+            'password.confirmed' => 'Las contraseñas no coinciden',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres',
+        ];
+
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'nombre' => 'required|max:255',
+            'apellido' => 'max:255',
+            'legajo' => 'required|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
-        ]);
+        ], $messages);
     }
 
     /**
@@ -57,7 +74,13 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'legajo' => $data['legajo'],
+            'telefono' => $data['telefono'],
+            'domicilio' => $data['domicilio'],
+            'estado' => 0,
+            'rol' => 0,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

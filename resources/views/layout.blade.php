@@ -4,7 +4,7 @@
 
 <head>@include('partials.htmlheader')</head>
 
-<body>
+<body id="startpage">
 
 <div>
 
@@ -14,7 +14,8 @@
 
         <section class="content">
 
-            @yield('body')
+                @include('partials.messages')
+                @yield('body')
 
         </section>
 
