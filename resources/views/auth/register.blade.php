@@ -53,6 +53,7 @@
 
             <div class="form-group">
                 {!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ asset('auth/login') }}" class="btn btn-default">Cancelar</a>
             </div>
 
 

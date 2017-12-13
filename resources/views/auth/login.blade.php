@@ -3,9 +3,10 @@
 @section('body')
 
     <div class="row">
-        <div style="width: 350px; margin: 100px auto 0 auto;">
+        <div style="width: 30%; margin: 100px auto 0 auto;">
 
-            <h2 style="margin-bottom: 20px">Inicio de sesión</h2>
+
+            <h2 style="margin-bottom: 20px"><img src="{{ asset('img/logo.png') }}" style="background-color: gray; padding: 10px; margin-right: 20px; border-radius: 5px"> Inicio de sesión</h2>
 
             {!! Form::open(['url' => '/auth/login', 'method' => 'post', 'style' => 'display: block; margin-bottom: 60px']) !!}
 

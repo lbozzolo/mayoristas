@@ -8,7 +8,6 @@
 
     <div>
 
-        @include('partials.mainheader')
 
         <section class="content">
 

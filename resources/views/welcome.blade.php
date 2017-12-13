@@ -33,12 +33,23 @@
             .title {
                 font-size: 96px;
             }
+            .boton {
+                font-family: arial;
+                color: white;
+                background-color: gray;
+                padding: 5px 10px;
+                border-radius: 5px;
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
                 <div class="title">Mayoristas</div>
+            </div>
+            <div>
+                <a href="{{ asset('/auth/logout') }}" class="boton">Cerrar sesión</a>
             </div>
         </div>
     </body>

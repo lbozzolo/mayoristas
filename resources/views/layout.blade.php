@@ -8,9 +8,6 @@
 
 <div>
 
-    @include('partials.mainheader')
-
-
 
         <section class="content">
 
@@ -19,9 +16,7 @@
 
         </section>
 
-
-
-    @include('partials.footer')
+        @include('partials.footer')
 
 </div>
 @include('partials.scripts')

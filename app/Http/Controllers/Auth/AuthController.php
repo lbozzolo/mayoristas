@@ -10,6 +10,13 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+
+    protected $redirectTo = "/";
+    protected $loginUserName = 'Los datos ingresados no coinciden con nuestros registros.';
+    protected $getFailedLoginMessage = 'Los datos ingresados no coinciden con nuestros registros.';
+    protected $messagepostLogin = [
+        'password.required' => 'La contraseña es obligatoria'
+    ];
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -28,7 +35,8 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(
+    )
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }

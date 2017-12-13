@@ -18,10 +18,15 @@ Route::get('/', function () {
 
 require(__DIR__ . '/Routes/auth.php');
 
+
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('/', function (){
-        return view('welcome');
-    });
+    Route::get('/', [
+        'as' => 'home',
+        'uses' => 'HomeController@index'
+    ]);
+
+    require(__DIR__ . '/Routes/continentes.php');
+    require(__DIR__ . '/Routes/admin.php');
 
 });
