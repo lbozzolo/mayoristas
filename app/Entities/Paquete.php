@@ -15,4 +15,9 @@ class Paquete extends Model
         return $this->belongsTo(Continente::class);
     }
 
+    public function opciones()
+    {
+        return $this->hasMany(Opcion::class);
+    }
+
 }

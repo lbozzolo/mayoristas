@@ -96,6 +96,29 @@ input[type="submit"]{
 	margin:0px;
 	padding:10px 20px;
 }
+
+.cancelar{
+	float:left;
+	background-color:lightgray;
+	cursor:pointer;
+	border:0px;
+	font-size:15px;
+	color:gray;
+	margin:0px 2px;
+	padding:10px 20px;
+}
+
+.eliminar{
+	float:left;
+	background-color:firebrick !important;
+	cursor:pointer;
+	border:0px;
+	font-size:15px;
+	color:gray;
+	margin:0px 2px;
+	padding:10px 20px;
+}
+
 code{
 	float:left;
 	width:100%;	

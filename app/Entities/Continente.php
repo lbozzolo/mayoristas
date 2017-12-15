@@ -8,6 +8,7 @@ class Continente extends Model
 {
     protected $table = 'continentes';
     protected $fillable = ['nombre', 'descripcion'];
+    public $timestamps = false;
 
     //Relationships
     public function paquetes()
