@@ -16,4 +16,9 @@ class Continente extends Model
         return $this->hasMany(Paquete::class);
     }
 
+    public function images()
+    {
+        return $this->morphMany('App\Entities\Image', 'imageable');
+    }
+
 }

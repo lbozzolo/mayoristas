@@ -51,9 +51,18 @@ class User extends Model implements AuthenticatableContract,
     public function getEstadoTagAttribute()
     {
         if($this->attributes['estado'] == 0){
-            return '<span class="label label-danger">deshabilitado</span>';
+            return '<span class="text-danger" title="deshabilitado"><i class="fa fa-ban"></i> </span>';
         }else{
-            return '<span class="label label-success">habilitado</span>';
+            return '<span class="text-success" title="habilitado"><i class="fa fa-check"></i> </span>';
+        }
+    }
+
+    public function getRolNameAttribute()
+    {
+        if($this->attributes['rol'] == 1){
+            return '<span class="label label-primary">administrador</span>';
+        }elseif($this->attributes['rol'] == 2){
+            return '<span class="label label-warning">mayorista</span>';
         }
     }
 

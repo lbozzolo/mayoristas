@@ -18,7 +18,7 @@
                     @include('partials.messages')
                     <h3>Continentes</h3>
                     <h4 style="margin-top: 20px">Nuevo continente</h4>
-                    {!! Form::open(['method' => 'post', 'url' => route('admin.continente.store'), 'style' => 'margin-top: 20px']) !!}
+                    {!! Form::open(['method' => 'post', 'url' => route('admin.continente.store'), 'style' => 'margin-top: 20px', 'enctype' => 'multipart/form-data']) !!}
 
                     <div class="form-group">
                         {!! Form::label('nombre', 'Nombre') !!}
@@ -28,6 +28,11 @@
                     <div class="form-group">
                         {!! Form::label('descripcion', 'Descripción') !!}
                         {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('img', 'Foto de portada') !!}
+                        {!! Form::file('img', ['class' => 'form-control']) !!}
                     </div>
 
                     {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}

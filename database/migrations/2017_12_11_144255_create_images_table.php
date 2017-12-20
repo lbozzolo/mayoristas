@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
 
             $table->string('path');
             $table->integer('imageable_id');
-            $table->integer('imageable_type');
+            $table->string('imageable_type');
             $table->tinyInteger('principal')->default(0);
 
             $table->timestamps();

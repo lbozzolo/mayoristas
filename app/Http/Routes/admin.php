@@ -17,6 +17,16 @@ Route::get('admin/usuarios/deshabilitar/{id}', [
     'uses' => 'AdminPanelController@disableUser'
 ]);
 
+Route::get('admin/usuarios/administrador/{id}', [
+    'as' => 'admin.usuarios.administrador',
+    'uses' => 'AdminPanelController@adminUser'
+]);
+
+Route::get('admin/usuarios/mayorista/{id}', [
+    'as' => 'admin.usuarios.mayorista',
+    'uses' => 'AdminPanelController@mayoristaUser'
+]);
+
 Route::get('admin/usuarios/editar/{id}', [
     'as' => 'admin.usuarios.editar',
     'uses' => 'AdminPanelController@editUser'

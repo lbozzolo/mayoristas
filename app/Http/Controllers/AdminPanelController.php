@@ -9,16 +9,18 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Repositories\ContinenteRepo;
 use App\Http\Repositories\PaqueteRepo;
+use App\Http\Repositories\UserRepo;
 use Illuminate\Http\Request;
 
 class AdminPanelController extends BaseController
 {
     protected $continenteRepo;
 
-    public function __construct(ContinenteRepo $continenteRepo, PaqueteRepo $paqueteRepo)
+    public function __construct(ContinenteRepo $continenteRepo, PaqueteRepo $paqueteRepo, UserRepo $userRepo)
     {
         $this->continenteRepo = $continenteRepo;
         $this->paqueteRepo = $paqueteRepo;
+        $this->userRepo = $userRepo;
     }
 
     public function index($seccion)
@@ -33,6 +35,7 @@ class AdminPanelController extends BaseController
         return view($vista)->with($data);
     }
 
+    //Usuarios
     public function enableUser($id)
     {
         $usuario = User::find($id);
@@ -49,6 +52,24 @@ class AdminPanelController extends BaseController
 
         $usuario = User::find($id);
         $usuario->estado = 0;
+        $usuario->save();
+
+        return redirect()->route('admin.panel', 'usuarios');
+    }
+
+    public function adminUser($id)
+    {
+        $usuario = User::find($id);
+        $usuario->rol = 1;
+        $usuario->save();
+
+        return redirect()->route('admin.panel', 'usuarios');
+    }
+
+    public function mayoristaUser($id)
+    {
+        $usuario = User::find($id);
+        $usuario->rol = 2;
         $usuario->save();
 
         return redirect()->route('admin.panel', 'usuarios');
