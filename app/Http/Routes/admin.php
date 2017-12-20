@@ -6,6 +6,27 @@ Route::get('admin/{seccion}', [
 ]);
 
 
+//USUARIOS
+Route::get('admin/usuarios/habilitar/{id}', [
+    'as' => 'admin.usuarios.habilitar',
+    'uses' => 'AdminPanelController@enableUser'
+]);
+
+Route::get('admin/usuarios/deshabilitar/{id}', [
+    'as' => 'admin.usuarios.deshabilitar',
+    'uses' => 'AdminPanelController@disableUser'
+]);
+
+Route::get('admin/usuarios/editar/{id}', [
+    'as' => 'admin.usuarios.editar',
+    'uses' => 'AdminPanelController@editUser'
+]);
+
+Route::put('admin/usuarios/actualizar/{id}}', [
+    'as' => 'admin.usuarios.update',
+    'uses' => 'AdminPanelController@updateUser'
+]);
+
 //CONTINENTES
 Route::get('admin/continente/{idContinente}', [
     'as' => 'admin.continente.seleccion',

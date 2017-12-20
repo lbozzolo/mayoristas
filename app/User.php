@@ -36,4 +36,25 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    public function getFullnameAttribute()
+    {
+        return $this->attributes['nombre'].' '.$this->attributes['apellido'];
+    }
+
+    public function getFechaAltaAttribute()
+    {
+        return date('d/m/Y', strtotime($this->attributes['created_at']));
+    }
+
+    public function getEstadoTagAttribute()
+    {
+        if($this->attributes['estado'] == 0){
+            return '<span class="label label-danger">deshabilitado</span>';
+        }else{
+            return '<span class="label label-success">habilitado</span>';
+        }
+    }
+
 }

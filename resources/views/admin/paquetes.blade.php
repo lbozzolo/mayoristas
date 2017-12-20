@@ -4,7 +4,9 @@
 
     <div class="row">
         <div style="padding: 30px 10%">
-            <h2 style="margin-bottom: 20px"><img src="{{ asset('img/logo.png') }}" style="background-color: gray; padding: 10px; margin-right: 20px; border-radius: 5px"> Admin panel</h2><hr>
+
+                @include('admin.partials.head')
+
             <div class="col-lg-1 col-xs-12">
 
                 @include('admin.partials.nav')

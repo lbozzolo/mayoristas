@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Entities\Continente;
 use App\Entities\Paquete;
 use App\Entities\Opcion;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Repositories\ContinenteRepo;
 use App\Http\Repositories\PaqueteRepo;
 use Illuminate\Http\Request;
@@ -24,8 +26,54 @@ class AdminPanelController extends BaseController
         $vista = 'admin/'.$seccion;
         $data['continentes'] = $this->continenteRepo->listAll();
         $data['continents'] = Continente::with('paquetes')->get();
+        if($seccion == 'usuarios'){
+            $data['usuarios'] = User::all();
+        }
 
         return view($vista)->with($data);
+    }
+
+    public function enableUser($id)
+    {
+        $usuario = User::find($id);
+        $usuario->estado = 1;
+        $usuario->save();
+
+        return redirect()->route('admin.panel', 'usuarios');
+    }
+
+    public function disableUser($id)
+    {
+        if(Auth::user()->id == $id)
+            return redirect()->back()->withErrors('No se puede deshabilitar a sí mismo');
+
+        $usuario = User::find($id);
+        $usuario->estado = 0;
+        $usuario->save();
+
+        return redirect()->route('admin.panel', 'usuarios');
+    }
+
+    public function editUser($id)
+    {
+        $usuario = User::find($id);
+        return view('users.editar-user', compact('usuario'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $usuario = User::find($id);
+
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->legajo = $request->legajo;
+        $usuario->telefono = $request->telefono;
+        $usuario->domicilio = $request->domicilio;
+        $usuario->email = $request->email;
+
+        $usuario->save();
+
+        return redirect()->route('admin.panel', 'usuarios')->with('msgOk', 'El usuario ha sido editado con éxito');
     }
 
     public function opciones($idContinente)
@@ -46,17 +94,26 @@ class AdminPanelController extends BaseController
 
     public function editarContinente($id)
     {
-        dd($id);
+        $continente = Continente::find($id);
+        return view('admin.editar-continente', compact('continente'));
     }
 
     public function updateContinente(Request $request, $id)
     {
-        dd($request->input());
+        $continente = Continente::find($id);
+        $continente->nombre = $request->nombre;
+        $continente->descripcion = $request->descripcion;
+        $continente->save();
+
+        return redirect()->route('admin.panel', 'continentes')->with('msgOk', 'Continente editado con éxito');
     }
 
     public function eliminarContinente($id)
     {
-        dd($id);
+        $continente = Continente::find($id);
+        $continente->delete();
+
+        return redirect()->route('admin.panel', 'continentes')->with('msgOk', 'Continente eliminado con éxito');
     }
 
     //Paquetes
@@ -84,12 +141,28 @@ class AdminPanelController extends BaseController
 
     public function updatePaquete(Request $request, $id)
     {
-        dd($request->input());
+        $paquete = Paquete::find($id);
+        $paquete->descripcion = $request->descripcion;
+
+        if($request->file('pdf_file')){
+            $file = $request->file('pdf_file');
+            $nombre = $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+
+            $paquete->pdf_file = $nombre;
+        }
+
+        $paquete->save();
+
+        return redirect()->route('admin.panel', 'paquetes')->with('msgOk', 'Paquete editado con éxito');
     }
 
     public function eliminarPaquete($id)
     {
-        dd($id);
+        $paquete = Paquete::find($id);
+        $paquete->delete();
+
+        return redirect()->route('admin.panel', 'paquetes')->with('msgOk', 'Paquete eliminado con éxito');
     }
 
     //Opciones

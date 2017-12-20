@@ -52,6 +52,7 @@ class AuthController extends Controller
         $messages = [
             'nombre.required' => 'El nombre es obligatorio',
             'nombre.max' => 'El nombre no puede exceder los 255 caracteres',
+            'apellido.required' => 'El apellido es obligatorio',
             'apellido.max' => 'El apellido no puede exceder los 255 caracteres',
             'legajo.required' => 'El número de legajo es obligatorio',
             'legajo.unique' => 'El número de legajo ingresado ya está registrado',
@@ -66,7 +67,7 @@ class AuthController extends Controller
 
         return Validator::make($data, [
             'nombre' => 'required|max:255',
-            'apellido' => 'max:255',
+            'apellido' => 'required|max:255',
             'legajo' => 'required|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
@@ -88,7 +89,7 @@ class AuthController extends Controller
             'telefono' => $data['telefono'],
             'domicilio' => $data['domicilio'],
             'estado' => 0,
-            'rol' => 0,
+            'rol' => 1,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

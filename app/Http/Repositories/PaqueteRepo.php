@@ -19,7 +19,7 @@ class PaqueteRepo extends BaseRepo
 
     public function getPaquetesByContinente($id)
     {
-        return $this->model->where('continente_id', '=', $id)->get();
+        return $this->model->with('opciones')->where('continente_id', '=', $id)->get();
     }
 
 }
