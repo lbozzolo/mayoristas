@@ -92,7 +92,7 @@
                                     @foreach($paquete->opciones as $opcion)
                                         <tr>
                                             <td>{!! $opcion->descripcion !!}</td>
-                                            <td class="text-right">
+                                            <td class="text-right" width="100">
                                                 <a href="{{ route('admin.opcion.editar', $opcion->id) }}" title="editar"><i class="fa fa-pencil"></i></a>
                                                 <button class="text-danger" data-toggle="modal" data-target="#modalDeleteOpcion{!! $opcion->id !!}" style="border: none; background-color: white"><i class="fa fa-trash"></i> </button>
                                             </td>

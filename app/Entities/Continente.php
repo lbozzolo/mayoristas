@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Continente extends Model
 {
     protected $table = 'continentes';
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombre', 'descripcion', 'img'];
     public $timestamps = false;
 
     //Relationships

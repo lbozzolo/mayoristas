@@ -59,10 +59,14 @@
                                         @foreach($continent->paquetes as $paquete)
                                             <tr>
                                                 <td>{!! $paquete->descripcion !!}</td>
-                                                <td class="text-right">
+                                                <td class="text-right" width="100">
                                                     <a href="{{ route('admin.paquete.editar', $paquete->id) }}" title="editar"><i class="fa fa-pencil"></i></a>
                                                     <button class="text-danger" data-toggle="modal" data-target="#modalDeletePaquete{!! $paquete->id !!}" style="border: none; background-color: white"><i class="fa fa-trash"></i> </button>
-                                                    <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" target="_blank"><i class="fa fa-file-pdf-o"></i> </a>
+                                                    @if($paquete->pdf_file == '')
+                                                        <i class="fa fa-file-pdf-o"></i>
+                                                    @else
+                                                        <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" title="Ver pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> </a>
+                                                    @endif
                                                 </td>
                                                 {{-- VENTANA MODAL DELETE PAQUETE --}}
                                                 <div class="modal fade" id="modalDeletePaquete{!! $paquete->id !!}">

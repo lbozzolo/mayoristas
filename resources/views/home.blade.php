@@ -1,3 +1,9 @@
 @extends('base')
 
-Bien ve ni do
+<h1>Bienvenido</h1>
+<h1>Bienvenido</h1>
+<h1>Bienvenido</h1>
+<h1>Bienvenido</h1>
+<h1>Bienvenido</h1>
+<h1>Bienvenido</h1>
+<h1>Bienvenido</h1>

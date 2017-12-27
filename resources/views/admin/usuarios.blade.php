@@ -50,7 +50,7 @@
                                         <td>{!! $usuario->fecha_alta !!}</td>
                                         <td class="text-center">{!! $usuario->estado_tag !!}</td>
                                         <td class="text-center">{!! $usuario->rol_name !!}</td>
-                                        <td class="text-right" style="background-color: beige">
+                                        <td class="text-center" style="background-color: beige; width: 100px">
                                             @if($usuario->estado == 0)
                                                 <a href="{{ route('admin.usuarios.habilitar', $usuario->id) }}" class="btn btn-success btn-xs" title="habilitar"><i class="fa fa-check-square"></i> </a>
                                             @elseif($usuario->estado == 1)

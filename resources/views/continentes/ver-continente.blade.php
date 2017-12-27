@@ -2,42 +2,63 @@
 
 @section('contenido')
 
-    <section>
+    {{--<section>
         <img alt="" class="header-page" src="{{ asset('img/_59fc50ecda3c9.jpeg') }}">
-    </section>
+    </section>--}}
 
-    <section id="internalpage">
 
-        <!--start container-->
-        <div class="container clearfix">
 
-            <div class="grid_12">
-                <div class="titlesection ">
-                    <h2>{!! $continente->nombre !!}</h2>
-                </div>
-            </div>
+    <div class="row">
 
-            <div class="grid_12 blue">
-                <p>{!! $continente->descripcion !!}</p>
-            </div>
+        @foreach($continente->images as $imagen)
+            @if($imagen->principal == 1)
+                <img src="{{ route('admin.ver.image', $imagen->path) }}" alt="" class="img-responsive">
+            @endif
+        @endforeach
+        <div class="container" style="padding: 20px">
+            <h2>{!! $continente->nombre !!}</h2>
+            <p class="descripcion-continente">{!! $continente->descripcion !!}</p><hr>
 
-            <div class="grid_12">
-                <div class="titlesection rotate-fade-up">
-                    <h3>Paquetes Destacados</h3>
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
 
                     <ul class="list-unstyled">
-                        <li class="list-group-item"></li>
+                        @foreach($continente->paquetes as $paquete)
+
+                            <li>
+                                @if($paquete->pdf_file != '')
+                                    <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" class="pull-left" title="ver detalles" target="_blank"><i class="fa fa-info-circle"></i> ver detalles</a>
+                                @endif
+                                <h3 class="paquetes-title">{!! strtoupper($paquete->descripcion) !!}</h3>
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        @foreach($paquete->opciones as $opcion)
+                                            <tr>
+                                                <td>{!! $opcion->descripcion !!}</td>
+                                                <td width="250" class="text-center">
+                                                    USD <span class="text-info">{!! $opcion->importe !!}</span>
+                                                    + IMP USD <span class="text-info">{!! $opcion->impuesto !!}</span>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+
+                        @endforeach
                     </ul>
 
                 </div>
+                <div class="col-lg-4 col-md-4"></div>
             </div>
 
-
         </div>
-        <!--end container-->
 
 
+    </div>
 
-    </section>
 
 @endsection

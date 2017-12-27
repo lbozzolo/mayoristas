@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Continente;
+use App\Entities\Image;
 use App\Entities\Paquete;
 use App\Entities\Opcion;
 use App\User;
@@ -27,7 +28,7 @@ class AdminPanelController extends BaseController
     {
         $vista = 'admin/'.$seccion;
         $data['continentes'] = $this->continenteRepo->listAll();
-        $data['continents'] = Continente::with('paquetes')->get();
+        $data['continents'] = Continente::with('paquetes', 'images')->get();
         if($seccion == 'usuarios'){
             $data['usuarios'] = User::all();
         }
@@ -109,7 +110,17 @@ class AdminPanelController extends BaseController
     //Continentes
     public function storeContinente(Request $request)
     {
-        $this->continenteRepo->create($request->input());
+        $continente = $this->continenteRepo->create($request->input());
+
+        if($request->file('img')){
+            $file = $request->file('img');
+            $nombre = $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+
+            $imagen = new \App\Entities\Image(['path' => $nombre, 'principal' => 1]);
+            $continente->images()->save($imagen);
+        }
+
         return redirect()->route('admin.panel', 'continentes')->with('msgOk', 'Continente creado con éxito');
     }
 
@@ -211,10 +222,54 @@ class AdminPanelController extends BaseController
         dd($id);
     }
 
+    //Visualizar archivos
     public function verPdf($file)
     {
-        //return response()->make(\Illuminate\Support\Facades\File::get(public_path($file)),200)
         return response()->make(\Illuminate\Support\Facades\File::get(storage_path("app\\".$file)),200)
             ->header('Content-Type', 'application/pdf');
+    }
+
+    public function verImage($file)
+    {
+        return response()->make(\Illuminate\Support\Facades\File::get(storage_path("app\\".$file)),200)
+            ->header('Content-Type', 'image/jpg');
+    }
+
+    public function storeImage(Request $request, $id)
+    {
+        $continente = Continente::find($id);
+
+        if($request->file('img')){
+            $file = $request->file('img');
+            $nombre = $file->getClientOriginalName();
+            \Storage::disk('local')->put($nombre,  \File::get($file));
+
+            $imagen = new \App\Entities\Image(['path' => $nombre, 'principal' => 0]);
+            $continente->images()->save($imagen);
+        }
+
+        return redirect()->back();
+    }
+
+    public function principalImage($id)
+    {
+        $image = Image::find($id);
+        $continente = Continente::find($image->imageable->id);
+        foreach($continente->images as $imagen){
+            $imagen->principal = 0;
+            $imagen->save();
+        }
+        $image->principal = 1;
+        $image->save();
+
+        return redirect()->route('admin.panel', 'imagenes');
+    }
+
+    public function deleteImage($id)
+    {
+        $image = Image::find($id);
+        $image->delete();
+
+        return redirect()->back()->withErrors('Imagen eliminada con éxito');
     }
 }
