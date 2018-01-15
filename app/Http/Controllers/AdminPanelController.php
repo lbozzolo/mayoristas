@@ -98,6 +98,12 @@ class AdminPanelController extends BaseController
         return redirect()->route('admin.panel', 'usuarios')->with('msgOk', 'El usuario ha sido editado con éxito');
     }
 
+    public function seeProfile($id)
+    {
+        $user = User::find($id);
+        return view('users.see-profile', compact('user'));
+    }
+
     public function opciones($idContinente)
     {
         $data['continente'] = Continente::find($idContinente);

@@ -1,6 +1,10 @@
 <div class="pull-right">
     <ul class="list-unstyled">
-        <li><span class="text-muted pull-right">{!! Auth::user()->fullname !!}</span></li>
+        <li>
+            <a href="{{ route('admin.usuarios.perfil', Auth::user()->id) }}">
+                <span class="text-muted pull-right">{!! Auth::user()->fullname !!}</span>
+            </a>
+        </li>
         <li><span class="pull-right"><a href="{{ route('auth.logout') }}">cerrar sesión</a></span></li>
     </ul>
 </div>

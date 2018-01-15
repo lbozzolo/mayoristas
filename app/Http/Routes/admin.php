@@ -38,6 +38,11 @@ Route::group(['middleware' => ['admin']], function () {
         'uses' => 'AdminPanelController@updateUser'
     ]);
 
+    Route::get('admin/usuarios/{id}', [
+        'as' => 'admin.usuarios.perfil',
+        'uses' => 'AdminPanelController@seeProfile'
+    ]);
+
 //CONTINENTES
     Route::get('admin/continente/{idContinente}', [
         'as' => 'admin.continente.seleccion',
