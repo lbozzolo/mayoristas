@@ -1,7 +1,7 @@
 <div class="pull-right">
     <ul class="list-unstyled">
         <li>
-            <a href="{{ route('admin.usuarios.perfil', Auth::user()->id) }}">
+            <a href="{{ route('admin.usuarios.perfil', Auth::user()->id) }}" title="ver perfil">
                 <span class="text-muted pull-right">{!! Auth::user()->fullname !!}</span>
             </a>
         </li>

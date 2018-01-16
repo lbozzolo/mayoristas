@@ -63,7 +63,7 @@
                                                     <a href="{{ route('admin.paquete.editar', $paquete->id) }}" title="editar"><i class="fa fa-pencil"></i></a>
                                                     <button class="text-danger" data-toggle="modal" data-target="#modalDeletePaquete{!! $paquete->id !!}" style="border: none; background-color: white"><i class="fa fa-trash"></i> </button>
                                                     @if($paquete->pdf_file == '')
-                                                        <i class="fa fa-file-pdf-o"></i>
+                                                        <i class="fa fa-file-pdf-o" title="no hay pdf para este paquete"></i>
                                                     @else
                                                         <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" title="Ver pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> </a>
                                                     @endif

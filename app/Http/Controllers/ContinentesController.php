@@ -8,6 +8,10 @@ class ContinentesController extends BaseController
 {
     public function index()
     {
+        $continente = Continente::first();
+        if($continente)
+            return redirect()->route('continentes.ver', $continente->id);
+
         return view('home');
     }
 

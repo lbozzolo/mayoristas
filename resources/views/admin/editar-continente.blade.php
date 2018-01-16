@@ -26,7 +26,7 @@
 
                     <div class="form-group">
                         {!! Form::label('descripcion', 'Descripción del continente') !!}
-                        {!! Form::text('descripcion', $continente->descripcion, ['class' => 'form-control']) !!}
+                        {!! Form::textarea('descripcion', $continente->descripcion, ['class' => 'form-control text-area', 'rows' => '6']) !!}
                     </div>
 
                     {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}

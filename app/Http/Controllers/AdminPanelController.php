@@ -100,8 +100,8 @@ class AdminPanelController extends BaseController
 
     public function seeProfile($id)
     {
-        $user = User::find($id);
-        return view('users.see-profile', compact('user'));
+        $usuario = User::find($id);
+        return view('users.see-profile', compact('usuario'));
     }
 
     public function opciones($idContinente)

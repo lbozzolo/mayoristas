@@ -21,7 +21,8 @@ require(__DIR__ . '/Routes/auth.php');
 
 Route::group(['middleware' => ['auth', 'registered']], function () {
 
-    Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+    //Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+    Route::get('/', ['as' => 'home', 'uses' => 'ContinentesController@index']);
 
     require(__DIR__ . '/Routes/continentes.php');
     require(__DIR__ . '/Routes/admin.php');

@@ -27,7 +27,14 @@
                     <div class="form-group">
                         {!! Form::label('pdf_file', 'Cambiar archivo PDF') !!}
                         {!! Form::file('pdf_file', ['class' => 'form-control']) !!}
-                        Archivo actual: <em class="text-warning">{!! ($paquete->pdf_file != '')? $paquete->pdf_file : '- no hay pdf seleccionado -' !!}</em>
+                        <div style="margin-top: 10px">
+                            @if($paquete->pdf_file == '')
+                                <i class="fa fa-file-pdf-o" title="no hay pdf para este paquete"></i>
+                            @else
+                                <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" title="Ver pdf" target="_blank"><i class="fa fa-file-pdf-o"></i> </a>
+                            @endif
+                            Archivo actual: <em class="text-warning">{!! ($paquete->pdf_file != '')? $paquete->pdf_file : '- no hay pdf seleccionado -' !!}</em>
+                        </div>
                     </div>
 
                     {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}

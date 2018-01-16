@@ -20,19 +20,19 @@
             <p class="descripcion-continente">{!! $continente->descripcion !!}</p><hr>
 
             <div class="row">
-                <div class="col-lg-8 col-md-8">
+                <div class="col-lg-12 col-md-8">
 
                     <ul class="list-unstyled">
                         @foreach($continente->paquetes as $paquete)
 
-                            <li>
+                            <li class="list-group-item">
                                 @if($paquete->pdf_file != '')
-                                    <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" class="pull-left" title="ver detalles" target="_blank"><i class="fa fa-info-circle"></i> ver detalles</a>
+                                    <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" class="pull-right" title="ver detalles" target="_blank" style="font-size: 1.2em"><i class="fa fa-info-circle"></i> ver detalles</a>
                                 @endif
                                 <h3 class="paquetes-title">{!! strtoupper($paquete->descripcion) !!}</h3>
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" style="background-color: beige">
                                         <tbody>
                                         @foreach($paquete->opciones as $opcion)
                                             <tr>

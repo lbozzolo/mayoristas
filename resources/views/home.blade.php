@@ -1,9 +1,9 @@
 @extends('base')
 
-<h1>Bienvenido</h1>
-<h1>Bienvenido</h1>
-<h1>Bienvenido</h1>
-<h1>Bienvenido</h1>
-<h1>Bienvenido</h1>
-<h1>Bienvenido</h1>
-<h1>Bienvenido</h1>
+@section('contenido')
+
+    <div class="row">
+        <p style="padding: 50px" class="text-warning">No hay ningún continente cargado todavía</p>
+    </div>
+
+@endsection
