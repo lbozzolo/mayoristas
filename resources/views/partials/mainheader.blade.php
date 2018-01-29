@@ -33,10 +33,11 @@
                     <span class="menufilter"></span>
                     <a href="{{ route('admin.panel', 'continentes') }}">ADMIN</a>
                 </li>
-                @endif
                 <li>
                     <a href="{{ asset('/auth/logout') }}" class="boton">Cerrar sesión</a>
                 </li>
+                @endif
+
 
             </ul>
             <!--end navigationmenu-->

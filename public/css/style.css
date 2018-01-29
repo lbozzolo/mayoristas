@@ -2521,7 +2521,7 @@ blockquote{
 	width:100%;
 }
 .divider span{
-	height:1px;
+	height:0px;
 	width:100px;
 	background-color:#e5e5e5;
 	margin:50px auto;

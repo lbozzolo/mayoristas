@@ -26,9 +26,15 @@
                         {!! Form::label('continente_id', 'Continente') !!}
                         {!! Form::select('continente_id', $continentes, null, ['class' => 'form-control']) !!}
                     </div>
+
                     <div class="form-group">
-                        {!! Form::label('descripcion', 'Descripción del paquete') !!}
-                        {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('nombre', 'Nombre') !!}
+                        {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('descripcion', 'Descripción ') !!}
+                        {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '3', 'style' => 'margin-bottom: 10px']) !!}
                     </div>
 
                     <div class="form-group">
@@ -58,7 +64,7 @@
                                     <tbody>
                                         @foreach($continent->paquetes as $paquete)
                                             <tr>
-                                                <td>{!! $paquete->descripcion !!}</td>
+                                                <td>{!! $paquete->nombre !!}</td>
                                                 <td class="text-right" width="100">
                                                     <a href="{{ route('admin.paquete.editar', $paquete->id) }}" title="editar"><i class="fa fa-pencil"></i></a>
                                                     <button class="text-danger" data-toggle="modal" data-target="#modalDeletePaquete{!! $paquete->id !!}" style="border: none; background-color: white"><i class="fa fa-trash"></i> </button>

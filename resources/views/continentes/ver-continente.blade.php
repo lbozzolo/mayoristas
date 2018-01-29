@@ -29,7 +29,8 @@
                                 @if($paquete->pdf_file != '')
                                     <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" class="pull-right" title="ver detalles" target="_blank" style="font-size: 1.2em"><i class="fa fa-info-circle"></i> ver detalles</a>
                                 @endif
-                                <h3 class="paquetes-title">{!! strtoupper($paquete->descripcion) !!}</h3>
+                                <h3 class="paquetes-title">{!! strtoupper($paquete->nombre) !!}</h3>
+                                <p style="margin-bottom: 10px">{!! $paquete->descripcion !!}</p>
 
                                 <div class="table-responsive">
                                     <table class="table table-bordered" style="background-color: beige">

@@ -18,11 +18,11 @@
                 {!! Form::password('password', ['class' => 'form-control', 'id' => 'password', 'placeholder' => 'Contraseña']) !!}
             </div>
 
-            <div class="checkbox">
+            {{--<div class="checkbox">
                 <label>
                     {!! Form::checkbox('remember') !!}Recordarme
                 </label>
-            </div>
+            </div>--}}
 
             <div>
                 @include('partials.messages')
@@ -36,7 +36,7 @@
             {!! Form::close() !!}
 
             <div class="form-group">
-                <a href="#">Olvidé mi contraseña</a><br>
+                {{--<a href="#">Olvidé mi contraseña</a><br>--}}
                 <a href="{{ asset('/auth/register') }}">Registrarse</a>
             </div>
 

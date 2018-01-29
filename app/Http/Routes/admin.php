@@ -97,6 +97,11 @@ Route::group(['middleware' => ['admin']], function () {
         'uses' => 'AdminPanelController@editarOpcion'
     ]);
 
+    Route::post('admin/opcion', [
+        'as' => 'admin.opcion.crear',
+        'uses' => 'AdminPanelController@crearOpcion'
+    ]);
+
     Route::put('admin/opcion/update/{id}', [
         'as' => 'admin.opcion.update',
         'uses' => 'AdminPanelController@updateOpcion'
@@ -123,17 +128,17 @@ Route::group(['middleware' => ['admin']], function () {
         'uses' => 'AdminPanelController@deleteImage'
     ]);
 
-//VISUALIZAR ARCHIVOS
-    Route::get('ver-pdf/{file}', [
-        'as' => 'admin.ver.pdf',
-        'uses' => 'AdminPanelController@verPdf'
-    ]);
-
-    Route::get('ver-image/{file}', [
-        'as' => 'admin.ver.image',
-        'uses' => 'AdminPanelController@verImage'
-    ]);
-
 });
+
+//VISUALIZAR ARCHIVOS
+Route::get('ver-pdf/{file}', [
+    'as' => 'admin.ver.pdf',
+    'uses' => 'AdminPanelController@verPdf'
+]);
+
+Route::get('ver-image/{file}', [
+    'as' => 'admin.ver.image',
+    'uses' => 'AdminPanelController@verImage'
+]);
 
 

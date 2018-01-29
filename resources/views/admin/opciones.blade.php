@@ -36,15 +36,12 @@
                     @include('partials.messages')
 
                     <h4 style="margin: 20px 0px">Nueva opción</h4>
-                    {!! Form::open(['method' => 'post', 'url' => '']) !!}
+                    {!! Form::open(['method' => 'post', 'url' => route('admin.opcion.crear') ]) !!}
+
 
                     <div class="form-group">
-                        {!! Form::label('paquetes_id', 'Seleccione el paquete') !!}
-                        <select class="form-control">
-                            @foreach($paquetes as $paquete)
-                                <option name="paquete_id" value="{!! $paquete->id !!}">#{!! $paquete->id !!}-{!! $paquete->descripcion !!}</option>
-                            @endforeach
-                        </select>
+                        {!! Form::label('paquete_id', 'Seleccione el paquete') !!}
+                        {!! Form::select('paquete_id', $paquetesSelect, null, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
@@ -54,12 +51,12 @@
 
                     <div class="form-group">
                         {!! Form::label('importe', 'Importe') !!}
-                        {!! Form::text('importe', null, ['class' => 'form-control']) !!}
+                        (USD){!! Form::text('importe', null, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
                         {!! Form::label('impuesto', 'Impuesto') !!}
-                        {!! Form::text('impuesto', null, ['class' => 'form-control']) !!}
+                        (USD){!! Form::text('impuesto', null, ['class' => 'form-control']) !!}
                     </div>
 
                     {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
@@ -83,7 +80,7 @@
                     @foreach($paquetes as $paquete)
                         <li>
 
-                            <strong><em>#{!! $paquete->id !!}</em> - {!! $paquete->descripcion !!}</strong>
+                            <strong><em>#{!! $paquete->id !!}</em> - {!! $paquete->nombre !!}</strong>
 
                             @if(count($paquete->opciones) != 0)
                             <div class="table-responsive">

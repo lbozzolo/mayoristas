@@ -16,6 +16,7 @@ class CreatePaquetesTable extends Migration
             $table->increments('id');
 
             $table->integer('continente_id')->unsigned();
+            $table->string('nombre', 255);
             $table->string('descripcion', 255);
             $table->string('pdf_file', 255);
 

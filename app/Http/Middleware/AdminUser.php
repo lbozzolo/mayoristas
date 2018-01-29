@@ -16,7 +16,10 @@ class AdminUser
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->rol != '0' || Auth::user()->rol == '1'){
+        /*if(Auth::user()->rol != '0' || Auth::user()->rol != '1'){
+            return abort(403);
+        }*/
+        if(Auth::user()->rol == 2){
             return abort(403);
         }
 

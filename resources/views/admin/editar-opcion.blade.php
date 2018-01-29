@@ -28,12 +28,12 @@
 
                     <div class="form-group">
                         {!! Form::label('importe', 'Importe') !!}
-                        {!! Form::text('importe', null, ['class' => 'form-control']) !!}
+                        (USD){!! Form::text('importe', null, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
                         {!! Form::label('impuesto', 'Impuesto') !!}
-                        {!! Form::text('impuesto', null, ['class' => 'form-control']) !!}
+                        (USD){!! Form::text('impuesto', null, ['class' => 'form-control']) !!}
                     </div>
 
                     {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}

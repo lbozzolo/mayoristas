@@ -7,21 +7,28 @@ use App\Entities\Image;
 use App\Entities\Paquete;
 use App\Entities\Opcion;
 use App\User;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Repositories\ContinenteRepo;
 use App\Http\Repositories\PaqueteRepo;
+use App\Http\Repositories\OpcionRepo;
 use App\Http\Repositories\UserRepo;
 use Illuminate\Http\Request;
 
 class AdminPanelController extends BaseController
 {
     protected $continenteRepo;
+    protected $paqueteRepo;
+    protected $userRepo;
+    protected $opcionRepo;
 
-    public function __construct(ContinenteRepo $continenteRepo, PaqueteRepo $paqueteRepo, UserRepo $userRepo)
+    public function __construct(ContinenteRepo $continenteRepo, PaqueteRepo $paqueteRepo, UserRepo $userRepo, OpcionRepo $opcionRepo)
     {
         $this->continenteRepo = $continenteRepo;
         $this->paqueteRepo = $paqueteRepo;
         $this->userRepo = $userRepo;
+        $this->opcionRepo = $opcionRepo;
     }
 
     public function index($seccion)
@@ -104,15 +111,6 @@ class AdminPanelController extends BaseController
         return view('users.see-profile', compact('usuario'));
     }
 
-    public function opciones($idContinente)
-    {
-        $data['continente'] = Continente::find($idContinente);
-        $data['continentes'] = $this->continenteRepo->listAll();
-        $data['paquetes'] = $this->paqueteRepo->getPaquetesByContinente($idContinente);
-
-        return view('admin.opciones')->with($data);
-    }
-
     //Continentes
     public function storeContinente(Request $request)
     {
@@ -121,7 +119,7 @@ class AdminPanelController extends BaseController
         if($request->file('img')){
             $file = $request->file('img');
             $nombre = $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombre,  \File::get($file));
+            Storage::disk('local')->put($nombre,  File::get($file));
 
             $imagen = new \App\Entities\Image(['path' => $nombre, 'principal' => 1]);
             $continente->images()->save($imagen);
@@ -141,6 +139,16 @@ class AdminPanelController extends BaseController
         $continente = Continente::find($id);
         $continente->nombre = $request->nombre;
         $continente->descripcion = $request->descripcion;
+
+        if($request->file('img')){
+            $file = $request->file('img');
+            $nombre = $file->getClientOriginalName();
+            Storage::disk('local')->put($nombre,  File::get($file));
+
+            $imagen = new \App\Entities\Image(['path' => $nombre, 'principal' => 1]);
+            $continente->images()->save($imagen);
+        }
+
         $continente->save();
 
         return redirect()->route('admin.panel', 'continentes')->with('msgOk', 'Continente editado con éxito');
@@ -162,7 +170,7 @@ class AdminPanelController extends BaseController
         if($request->file('pdf_file')){
             $file = $request->file('pdf_file');
             $nombre = $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombre,  \File::get($file));
+            Storage::disk('local')->put($nombre,  File::get($file));
 
             $paquete->pdf_file = $nombre;
             $paquete->save();
@@ -185,7 +193,7 @@ class AdminPanelController extends BaseController
         if($request->file('pdf_file')){
             $file = $request->file('pdf_file');
             $nombre = $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombre,  \File::get($file));
+            Storage::disk('local')->put($nombre,  File::get($file));
 
             $paquete->pdf_file = $nombre;
         }
@@ -204,6 +212,23 @@ class AdminPanelController extends BaseController
     }
 
     //Opciones
+    public function opciones($idContinente)
+    {
+        $data['continente'] = Continente::find($idContinente);
+        $data['continentes'] = $this->continenteRepo->listAll();
+        $data['paquetes'] = $this->paqueteRepo->getPaquetesByContinente($idContinente);
+        $data['paquetesSelect'] = $data['paquetes']->lists('nombre', 'id');
+
+        return view('admin.opciones')->with($data);
+    }
+
+    public function crearOpcion(Request $request)
+    {
+        $opcion = $this->opcionRepo->create($request->input());
+        $continente = $opcion->paquete->continente->id;
+        return redirect()->route('admin.continente.seleccion', $continente)->with('msgOk', 'Opción editada con éxito');
+    }
+
     public function editarOpcion($id)
     {
         $opcion = Opcion::find($id);
@@ -219,25 +244,27 @@ class AdminPanelController extends BaseController
         $opcion->impuesto = $request->impuesto;
         $opcion->save();
 
-        //return redirect()->route('admin.panel', 'opciones')->with('msgOk', 'Opción editada con éxito');
         return redirect()->route('admin.continente.seleccion', $continente)->with('msgOk', 'Opción editada con éxito');
     }
 
     public function eliminarOpcion($id)
     {
-        dd($id);
+        $opcion = Opcion::find($id);
+        $continente = $opcion->paquete->continente->id;
+        $opcion->delete();
+        return redirect()->route('admin.continente.seleccion', $continente)->with('msgOk', 'Opción eliminada con éxito');
     }
 
     //Visualizar archivos
     public function verPdf($file)
     {
-        return response()->make(\Illuminate\Support\Facades\File::get(storage_path("app\\".$file)),200)
+        return response()->make(\Illuminate\Support\Facades\File::get(storage_path("app/".$file)),200)
             ->header('Content-Type', 'application/pdf');
     }
 
     public function verImage($file)
     {
-        return response()->make(\Illuminate\Support\Facades\File::get(storage_path("app\\".$file)),200)
+        return response()->make(\Illuminate\Support\Facades\File::get(storage_path("app/".$file)),200)
             ->header('Content-Type', 'image/jpg');
     }
 
@@ -248,7 +275,7 @@ class AdminPanelController extends BaseController
         if($request->file('img')){
             $file = $request->file('img');
             $nombre = $file->getClientOriginalName();
-            \Storage::disk('local')->put($nombre,  \File::get($file));
+            Storage::disk('local')->put($nombre,  File::get($file));
 
             $imagen = new \App\Entities\Image(['path' => $nombre, 'principal' => 0]);
             $continente->images()->save($imagen);

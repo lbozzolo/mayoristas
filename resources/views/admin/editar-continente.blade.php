@@ -17,7 +17,7 @@
                 <h3>Editar Continente</h3>
 
                 <div style="margin-top: 30px">
-                    {!! Form::model($continente, ['method' => 'put', 'url' => route('admin.continente.update', $continente->id)]) !!}
+                    {!! Form::model($continente, ['method' => 'put', 'url' => route('admin.continente.update', $continente->id), 'enctype' => 'multipart/form-data']) !!}
 
                     <div class="form-group">
                         {!! Form::label('nombre', 'Nombre del continente') !!}
@@ -27,6 +27,11 @@
                     <div class="form-group">
                         {!! Form::label('descripcion', 'Descripción del continente') !!}
                         {!! Form::textarea('descripcion', $continente->descripcion, ['class' => 'form-control text-area', 'rows' => '6']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('img', 'Foto de portada') !!}
+                        {!! Form::file('img', ['class' => 'form-control']) !!}
                     </div>
 
                     {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}

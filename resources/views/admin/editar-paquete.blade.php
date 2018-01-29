@@ -20,8 +20,13 @@
                     {!! Form::model($paquete, ['method' => 'put', 'url' => route('admin.paquete.update', $paquete->id), 'enctype' => 'multipart/form-data']) !!}
 
                     <div class="form-group">
-                        {!! Form::label('descripcion', 'Descripción del paquete') !!}
-                        {!! Form::text('descripcion', $paquete->descripcion, ['class' => 'form-control']) !!}
+                        {!! Form::label('nombre', 'Nombre') !!}
+                        {!! Form::text('nombre', $paquete->nombre, ['class' => 'form-control']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('descripcion', 'Descripción') !!}
+                        {!! Form::textarea('descripcion', $paquete->descripcion, ['class' => 'form-control', 'rows' => '3', 'style' => 'margin-bottom: 10px']) !!}
                     </div>
 
                     <div class="form-group">
