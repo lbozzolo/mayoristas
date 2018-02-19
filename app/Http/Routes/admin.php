@@ -118,7 +118,7 @@ Route::group(['middleware' => ['admin']], function () {
         'uses' => 'AdminPanelController@storeImage'
     ]);
 
-    Route::get('admin/image/principal/{id}', [
+    Route::get('admin/image/principal/{id}/{seccion?}', [
         'as' => 'admin.image.principal',
         'uses' => 'AdminPanelController@principalImage'
     ]);

@@ -34,10 +34,22 @@ class AdminPanelController extends BaseController
     public function index($seccion)
     {
         $vista = 'admin/'.$seccion;
+        $homeBase = Continente::where('nombre', 'home')->first();
         $data['continentes'] = $this->continenteRepo->listAll();
         $data['continents'] = Continente::with('paquetes', 'images')->get();
-        if($seccion == 'usuarios'){
+        $data['homeContinents'] = Paquete::with('images')->where('continente_id', $homeBase->id)->get();
+
+
+        if($seccion == 'usuarios') {
             $data['usuarios'] = User::all();
+        }
+
+        if($seccion == 'home'){
+            $home = Continente::where('nombre', '=', 'Home')->first();
+            $paquete = $home->paquetes()->first();
+            $data['paquete'] = $paquete;
+            $data['home'] = $home;
+            //return redirect()->route('admin.paquete.editar', $paquete->id);
         }
 
         return view($vista)->with($data);
@@ -176,18 +188,34 @@ class AdminPanelController extends BaseController
             $paquete->save();
         }
 
-        return redirect()->route('admin.panel', 'paquetes')->with('msgOk', 'Paquete creado con éxito');
+        $homeBase = Continente::where('nombre', 'home')->first();
+
+        if($paquete->continente_id == $homeBase->id){
+            $url = redirect()->route('admin.panel', 'home')->with('msgOk', 'Home creada con éxito');
+        }else{
+            $url = redirect()->route('admin.panel', 'paquetes')->with('msgOk', 'Paquete creado con éxito');
+        }
+
+        return $url;
     }
 
     public function editarPaquete($id)
     {
         $paquete = Paquete::find($id);
-        return view('admin.editar-paquete', compact('paquete'));
+
+        if($paquete->continente->nombre == 'Home'){
+            $url = view('admin.editar-home', compact('paquete'));
+        }else{
+            $url = view('admin.editar-paquete', compact('paquete'));
+        }
+
+        return $url;
     }
 
     public function updatePaquete(Request $request, $id)
     {
         $paquete = Paquete::find($id);
+        $paquete->nombre = $request->nombre;
         $paquete->descripcion = $request->descripcion;
 
         if($request->file('pdf_file')){
@@ -200,7 +228,13 @@ class AdminPanelController extends BaseController
 
         $paquete->save();
 
-        return redirect()->route('admin.panel', 'paquetes')->with('msgOk', 'Paquete editado con éxito');
+        if($paquete->continente->nombre == 'Home'){
+            $url = redirect()->route('admin.panel', 'home')->with('msgOk', 'Home editada con éxito');
+        }else{
+            $url = redirect()->route('admin.panel', 'paquetes')->with('msgOk', 'Paquete editado con éxito');
+        }
+
+        return $url;
     }
 
     public function eliminarPaquete($id)
@@ -208,7 +242,13 @@ class AdminPanelController extends BaseController
         $paquete = Paquete::find($id);
         $paquete->delete();
 
-        return redirect()->route('admin.panel', 'paquetes')->with('msgOk', 'Paquete eliminado con éxito');
+        if($paquete->continente->nombre == 'Home'){
+            $url = redirect()->route('admin.panel', 'home')->with('msgOk', 'Variante eliminada con éxito');
+        }else{
+            $url = redirect()->route('admin.panel', 'paquetes')->with('msgOk', 'Paquete eliminado con éxito');
+        }
+
+        return $url;
     }
 
     //Opciones
@@ -270,7 +310,11 @@ class AdminPanelController extends BaseController
 
     public function storeImage(Request $request, $id)
     {
-        $continente = Continente::find($id);
+        if($request->seccion){
+            $continente = Paquete::find($id);
+        }else{
+            $continente = Continente::find($id);
+        }
 
         if($request->file('img')){
             $file = $request->file('img');
@@ -284,10 +328,16 @@ class AdminPanelController extends BaseController
         return redirect()->back();
     }
 
-    public function principalImage($id)
+    public function principalImage($id, $seccion = null)
     {
         $image = Image::find($id);
-        $continente = Continente::find($image->imageable->id);
+
+        if($seccion != null && $seccion = 'home'){
+            $continente = Paquete::find($image->imageable->id);
+        }else{
+            $continente = Continente::find($image->imageable->id);
+        }
+
         foreach($continente->images as $imagen){
             $imagen->principal = 0;
             $imagen->save();

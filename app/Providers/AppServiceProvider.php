@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Relation::morphMap([
             'continente' => \App\Entities\Continente::class,
+            'paquete' => \App\Entities\Paquete::class,
         ]);
     }
 

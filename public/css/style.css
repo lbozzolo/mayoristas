@@ -97,6 +97,24 @@ input[type="submit"]{
 	padding:10px 20px;
 }
 
+.primario{
+	float:left;
+	background-color:#1ABC9C;
+	cursor:pointer;
+	border:0px;
+	border-radius: 5px;
+	font-size:15px;
+	color:#FFF;
+	margin:0px;
+	padding:10px 20px;
+}
+
+.primario:hover{
+	background-color: darkblue;
+	color: white;
+	text-decoration: none;
+}
+
 .cancelar{
 	float:left;
 	background-color:lightgray;

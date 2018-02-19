@@ -2,7 +2,9 @@
 
 <html lang="en">
 
-<head>@include('partials.htmlheader')</head>
+<head>
+        @include('partials.htmlheader')
+</head>
 
 <body id="startpage">
 

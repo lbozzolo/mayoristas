@@ -20,4 +20,9 @@ class Paquete extends Model
         return $this->hasMany(Opcion::class);
     }
 
+    public function images()
+    {
+        return $this->morphMany('App\Entities\Image', 'imageable');
+    }
+
 }

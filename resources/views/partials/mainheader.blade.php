@@ -21,10 +21,12 @@
 
                 @foreach($navbar as $continente)
 
-                    <li {{ (Request::is('continentes/'.$continente->id) ? 'class=violet' : 'class=green') }}>
-                        <span class="menufilter"></span>
-                        <a href="{{ route('continentes.ver', $continente->id) }}">{!! strtoupper($continente->nombre) !!}</a>
-                    </li>
+                    @if($continente->nombre != 'Home')
+                        <li {{ (Request::is('continentes/'.$continente->id) ? 'class=violet' : 'class=green') }}>
+                            <span class="menufilter"></span>
+                            <a href="{{ route('continentes.ver', $continente->id) }}">{!! strtoupper($continente->nombre) !!}</a>
+                        </li>
+                    @endif
 
                 @endforeach
 
@@ -33,11 +35,12 @@
                     <span class="menufilter"></span>
                     <a href="{{ route('admin.panel', 'continentes') }}">ADMIN</a>
                 </li>
+                @endif
+                @if(Auth::check())
                 <li>
                     <a href="{{ asset('/auth/logout') }}" class="boton">Cerrar sesión</a>
                 </li>
                 @endif
-
 
             </ul>
             <!--end navigationmenu-->
