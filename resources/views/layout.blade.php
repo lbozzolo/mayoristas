@@ -10,7 +10,6 @@
 
 <div>
 
-
         <section class="content">
 
                 @include('partials.messages')

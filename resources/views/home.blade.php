@@ -5,8 +5,8 @@
     <style type="text/css">
 
         .texto-home{
-            font-size: 2em;
-            color: #0f0f0f;
+            font-size: 1.8em;
+            color: black;
             line-height: 1.2em;
         }
         h2{

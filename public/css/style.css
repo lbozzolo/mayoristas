@@ -3030,10 +3030,16 @@ font-family: square721_cn_btroman;
 	padding: 10px 20px;
 	font-family: 'Arial';
 	font-size: 1.2em;
+	color: black;
 }
 
 .paquetes-title{
 	padding: 20px 0px 10px 0px;
+	color: darkslategray;
+}
+
+.paquete-descripcion{
+	color: black;
 }
 
 .text-area{
@@ -3041,4 +3047,8 @@ font-family: square721_cn_btroman;
 	font-family: 'Arial';
 	font-style: normal;
 	margin-bottom: 10px;
+}
+
+.titulo-opcion{
+	color: dimgray;
 }

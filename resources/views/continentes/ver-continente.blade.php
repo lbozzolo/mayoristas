@@ -30,14 +30,14 @@
                                     <a href="{{ route('admin.ver.pdf', $paquete->pdf_file) }}" class="pull-right" title="ver detalles" target="_blank" style="font-size: 1.2em"><i class="fa fa-info-circle"></i> ver detalles</a>
                                 @endif
                                 <h3 class="paquetes-title">{!! strtoupper($paquete->nombre) !!}</h3>
-                                <p style="margin-bottom: 10px">{!! $paquete->descripcion !!}</p>
+                                <p style="margin-bottom: 10px" class="paquete-descripcion">{!! $paquete->descripcion !!}</p>
 
                                 <div class="table-responsive">
                                     <table class="table table-bordered" style="background-color: beige">
                                         <tbody>
                                         @foreach($paquete->opciones as $opcion)
                                             <tr>
-                                                <td>{!! $opcion->descripcion !!}</td>
+                                                <td class="titulo-opcion">{!! $opcion->descripcion !!}</td>
                                                 <td width="250" class="text-center">
                                                     USD <span class="text-info">{!! $opcion->importe !!}</span>
                                                     + IMP USD <span class="text-info">{!! $opcion->impuesto !!}</span>

@@ -13,9 +13,8 @@
                 <img class="logo fade-up animate4" alt="" src="{{asset('img/logo01.png')}}" width="150">
             </a>
             <!--start navigation-->
+
             <ul class="sf-menu" id="nav">
-
-
 
                 <li class="red">
                     <span class="menufilter"></span>
@@ -53,6 +52,18 @@
                 </li>
 
             </ul>
+
+            <select id="tinynav1" class="tinynav tinynav1">
+                <option>Menu</option>
+                <option value="vacaciones.php">VACACIONES</option>
+                <option value="eventos.php">EVENTOS DEPORTIVOS</option>
+                <option value="corporativo.php">CORPORATIVOS</option>
+                <option value="lunademiel.php">LUNA DE MIEL</option>
+                <option value="agencias.php">AGENCIAS</option>
+                <option value="nosotros.php">NOSOTROS</option>
+                <option value="contactanos.php">CONTACTANOS</option>
+            </select>
+
             <!--end navigationmenu-->
 
         </div>

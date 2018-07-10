@@ -43,6 +43,33 @@
                 @endif
 
             </ul>
+
+            <select id="tinynav1" class="tinynav tinynav1">
+
+                @foreach($navbar as $continente)
+
+                    @if($continente->nombre != 'Home')
+                        <option value="{{ route('continentes.ver', $continente->id) }}">
+
+                            {!! strtoupper($continente->nombre) !!}
+                        </option>
+                    @endif
+
+                @endforeach
+
+                @if(Auth::user()->rol == '0' || Auth::user()->rol == '1')
+                    <option class="orange">
+                        <span class="menufilter"></span>
+                        <a href="{{ route('admin.panel', 'continentes') }}">ADMIN</a>
+                    </option>
+                @endif
+                @if(Auth::check())
+                    <option>
+                        <a href="{{ asset('/auth/logout') }}" class="boton">Cerrar sesión</a>
+                    </option>
+                @endif
+
+            </select>
             <!--end navigationmenu-->
 
         </div>
