@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd5e5260-40c1-4ed9-a20b-44cb0f227427" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Entities/NewsletterEmails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Routes/agencias.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/agencias/contact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/detalle-paquete.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/partials/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/partials/htmlheader.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/partials/mainheader.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/partials/messages.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/partials/scripts.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/agencias/ver-continente.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mayoristas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mayoristas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Entities/Paquete.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entities/Paquete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContinentesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContinentesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Routes/continentes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Routes/continentes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/editar-paquete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/editar-paquete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/paquetes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/paquetes.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/htmlheader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/htmlheader.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="bd5e5260-40c1-4ed9-a20b-44cb0f227427" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,47 +57,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContinentesController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="615">
               <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/agencias/detalle-paquete.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Routes/agencias.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Routes/continentes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -349,61 +288,6 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="elysium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="elysium" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="elysium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="elysium" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="elysium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="elysium" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="agencias" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="elysium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="elysium" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="agencias" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="elysium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="elysium" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="continentes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="elysium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="elysium" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="elysium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="elysium" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="elysium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="elysium" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -476,12 +360,12 @@
       <workItem from="1531227263332" duration="4523000" />
       <workItem from="1548333360126" duration="905000" />
       <workItem from="1548365079216" duration="24724000" />
-      <workItem from="1548704988167" duration="4996000" />
+      <workItem from="1548704988167" duration="5396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="286428000" />
+    <option name="totallyTimeSpent" value="286828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -844,13 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContinentesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/agencias/detalle-paquete.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -860,8 +737,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="435">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContinentesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
         </state>
       </provider>
     </entry>
