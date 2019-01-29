@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Continente;
+use App\Entities\NewsletterEmails;
 use App\Entities\Paquete;
+use Illuminate\Http\Request;
 
 class ContinentesController extends BaseController
 {
     public function index()
     {
-        /*$continente = Continente::first();
-        if($continente)
-            return redirect()->route('continentes.ver', $continente->id);*/
+        $homeBase = Continente::where('nombre', 'Africa')->first();
+        return redirect()->route('continentes.ver', $homeBase->id);
+
+    }
+
+    public function indexViejo()
+    {
         $homeBase = Continente::where('nombre', 'Home')->first();
         $home = Paquete::where('continente_id', $homeBase->id)->first();
 
@@ -21,6 +27,21 @@ class ContinentesController extends BaseController
     public function verContinente($id)
     {
         $continente = Continente::find($id);
-        return view('continentes.ver-continente', compact('continente'));
+        return view('agencias.ver-continente', compact('continente'));
+        //return view('continentes.ver-continente', compact('continente'));
     }
+
+    public function verPaquete($id)
+    {
+        $paquete = Paquete::find($id);
+        $continente = $paquete->continente;
+        return view('agencias.detalle-paquete', compact('paquete', 'continente'));
+    }
+
+    public function storeNewsletter(Request $request)
+    {
+        NewsletterEmails::create(['email' => $request->email_newsletter]);
+        return redirect()->back();
+    }
+
 }

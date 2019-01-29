@@ -26,5 +26,6 @@ Route::group(['middleware' => ['auth', 'registered']], function () {
 
     require(__DIR__ . '/Routes/continentes.php');
     require(__DIR__ . '/Routes/admin.php');
+    require(__DIR__ . '/Routes/agencias.php');
 
 });

@@ -177,6 +177,7 @@ class AdminPanelController extends BaseController
     //Paquetes
     public function storePaquete(Request $request)
     {
+        //dd($request->all());
         $paquete = $this->paqueteRepo->create($request->input());
 
         if($request->file('pdf_file')){
@@ -217,6 +218,7 @@ class AdminPanelController extends BaseController
         $paquete = Paquete::find($id);
         $paquete->nombre = $request->nombre;
         $paquete->descripcion = $request->descripcion;
+        $paquete->contenido = $request->contenido;
 
         if($request->file('pdf_file')){
             $file = $request->file('pdf_file');
@@ -310,6 +312,7 @@ class AdminPanelController extends BaseController
 
     public function storeImage(Request $request, $id)
     {
+        //dd($request->all());
         if($request->seccion){
             $continente = Paquete::find($id);
         }else{
@@ -332,7 +335,7 @@ class AdminPanelController extends BaseController
     {
         $image = Image::find($id);
 
-        if($seccion != null && $seccion = 'home'){
+        if($seccion != null && $seccion = 'home' || $seccion != null && $seccion = 'paquete'){
             $continente = Paquete::find($image->imageable->id);
         }else{
             $continente = Continente::find($image->imageable->id);
@@ -345,7 +348,8 @@ class AdminPanelController extends BaseController
         $image->principal = 1;
         $image->save();
 
-        return redirect()->route('admin.panel', 'imagenes');
+        return redirect()->back();
+        //return redirect()->route('admin.panel', 'imagenes');
     }
 
     public function deleteImage($id)

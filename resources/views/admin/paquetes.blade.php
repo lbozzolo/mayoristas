@@ -12,14 +12,14 @@
                 @include('admin.partials.nav')
 
             </div>
-            <div class="col-lg-7 col-xs-12" style="margin-bottom: 30px">
+            <div class="col-lg-8 col-xs-12" style="margin-bottom: 30px">
 
                 <div style="padding: 0px 50px">
 
                     @include('partials.messages')
 
                     <h3>Paquetes</h3>
-                    <h4 style="margin-top: 20px">Nuevo paquete</h4>
+                    <h4 class="text-primary" style="margin-top: 20px">Nuevo paquete</h4>
                     {!! Form::open(['method' => 'post', 'url' => route('admin.paquete.store'), 'style' => 'margin-top: 20px', 'enctype' => 'multipart/form-data']) !!}
 
                     <div class="form-group">
@@ -38,9 +38,14 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('pdf_file', 'Archivo PDF') !!}
-                        {!! Form::file('pdf_file', ['class' => 'form-control']) !!}
+                        {!! Form::label('contenido', 'Contenido') !!}
+                        {!! Form::textarea('contenido', null, ['id'=>'summernote', 'class'=>'form-control', 'rows'=>'60', 'cols'=>'80']) !!}
                     </div>
+
+                    {{--<div class="form-group">--}}
+                        {{--{!! Form::label('pdf_file', 'Archivo PDF') !!}--}}
+                        {{--{!! Form::file('pdf_file', ['class' => 'form-control']) !!}--}}
+                    {{--</div>--}}
 
                     {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
@@ -48,7 +53,7 @@
 
             </div>
 
-            <div class="col-lg-4 col-xs-12">
+            <div class="col-lg-3 col-xs-12">
 
                 <h3>Paquetes existentes</h3>
                 <ul class="list-unstyled" style="margin-top: 30px">
@@ -113,5 +118,33 @@
 
         </div>
     </div>
+
+@endsection
+
+@section('js')
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 400,
+                toolbar: [
+                    [ 'style', [ 'style' ] ],
+                    [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+                    [ 'fontname', [ 'fontname' ] ],
+                    [ 'fontsize', [ 'fontsize' ] ],
+                    [ 'color', [ 'color' ] ],
+                    [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
+                    [ 'table', [ 'table' ] ],
+                    [ 'insert', [ 'link'] ],
+                    [ 'view', [ 'undo', 'redo', 'fullscreen', 'codeview', 'help' ] ]
+                ]
+            });
+        });
+
+    </script>
 
 @endsection

@@ -25,11 +25,14 @@
 
     <div class="row">
 
+        @if($home)
         @foreach($home->images as $imagen)
             @if($imagen->principal == 1)
                 <img src="{{ route('admin.ver.image', $imagen->path) }}" alt="" class="img-responsive">
             @endif
         @endforeach
+        @endif
+
         <div class="container" style="padding: 70px 100px; background-color: white">
 
             <p class="lead">Bienvenidos a:</p>
