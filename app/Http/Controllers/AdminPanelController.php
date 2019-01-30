@@ -34,7 +34,7 @@ class AdminPanelController extends BaseController
     public function index($seccion)
     {
         $vista = 'admin/'.$seccion;
-        $homeBase = Continente::where('nombre', 'Africa')->first();
+        $homeBase = Continente::where('nombre', 'home')->first();
         $data['continentes'] = $this->continenteRepo->listAll();
         $data['continents'] = Continente::with('paquetes', 'images')->get();
         $data['homeContinents'] = Paquete::with('images')->where('continente_id', $homeBase->id)->get();
@@ -45,7 +45,7 @@ class AdminPanelController extends BaseController
         }
 
         if($seccion == 'home'){
-            $home = Continente::where('nombre', '=', 'Africa')->first();
+            $home = Continente::where('nombre', '=', 'home')->first();
             $paquete = $home->paquetes()->first();
             $data['paquete'] = $paquete;
             $data['home'] = $home;
