@@ -1,7 +1,7 @@
 <header class="header menu_fixed">
     <div id="preloader"><div data-loader="circle-side"></div></div><!-- /Page Preload -->
     <div id="logo">
-        <a href="index.html">
+        <a href="{{ route('continentes.ver', $continente->id) }}">
             <img src="{{ asset('agencias/img/logo.png') }}" width="333" height="80" data-retina="true" alt="" class="logo_normal">
             <img src="{{ asset('agencias/img/logo_sticky.png') }}" width="333" height="80" data-retina="true" alt="" class="logo_sticky">
         </a>
