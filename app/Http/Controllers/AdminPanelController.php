@@ -45,7 +45,7 @@ class AdminPanelController extends BaseController
         }
 
         if($seccion == 'home'){
-            $home = Continente::where('nombre', '=', 'Home')->first();
+            $home = Continente::where('nombre', '=', 'Africa')->first();
             $paquete = $home->paquetes()->first();
             $data['paquete'] = $paquete;
             $data['home'] = $home;

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd5e5260-40c1-4ed9-a20b-44cb0f227427" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="bd5e5260-40c1-4ed9-a20b-44cb0f227427" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +31,7 @@
           <entry key="json" value="1" />
           <entry key="log" value="2" />
           <entry key="md" value="1" />
-          <entry key="php" value="123" />
+          <entry key="php" value="124" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -43,30 +41,39 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="66" />
+          <entry key="PHP" value="67" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="3765" />
+          <entry key="php" value="3776" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Blade" value="2796" />
-          <entry key="PHP" value="969" />
+          <entry key="PHP" value="980" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContinentesController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="615">
               <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -132,7 +139,6 @@
         <option value="$PROJECT_DIR$/resources/views/partials/htmlheader.blade.php" />
         <option value="$PROJECT_DIR$/app/Entities/Paquete.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_27_154434_add_contenido_field_to_paquetes_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/editar-paquete.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/paquetes.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
@@ -148,6 +154,7 @@
         <option value="$PROJECT_DIR$/app/Http/Routes/agencias.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ContinentesController.php" />
         <option value="$PROJECT_DIR$/resources/views/agencias/detalle-paquete.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" />
       </list>
     </option>
   </component>
@@ -377,12 +384,12 @@
       <workItem from="1548333360126" duration="905000" />
       <workItem from="1548365079216" duration="24724000" />
       <workItem from="1548704988167" duration="6116000" />
-      <workItem from="1548849520160" duration="153000" />
+      <workItem from="1548849520160" duration="380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287701000" />
+    <option name="totallyTimeSpent" value="287928000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -687,13 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -707,6 +707,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
         </state>
       </provider>
     </entry>
