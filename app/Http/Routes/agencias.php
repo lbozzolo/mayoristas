@@ -10,4 +10,14 @@ Route::post('contacto', [
     'uses' => 'ContinentesController@contact'
 ]);
 
+Route::get('contratacion', [
+    'as' => 'agencias.contratacion',
+    'uses' => 'ContinentesController@contratacion'
+]);
+
+Route::get('terminos-y-condiciones', [
+    'as' => 'agencias.terminosycondiciones',
+    'uses' => 'ContinentesController@terminosYCondiciones'
+]);
+
 

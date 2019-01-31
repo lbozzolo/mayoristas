@@ -44,4 +44,16 @@ class ContinentesController extends BaseController
         return redirect()->back();
     }
 
+    public function contratacion()
+    {
+        $continente = Continente::where('nombre', 'Africa')->first();
+        return view('agencias.contratacion')->with('continente', $continente);
+    }
+
+    public function terminosYCondiciones()
+    {
+        $continente = Continente::where('nombre', 'Africa')->first();
+        return view('agencias.terminosycondiciones')->with('continente', $continente);
+    }
+
 }

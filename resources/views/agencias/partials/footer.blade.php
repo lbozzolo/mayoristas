@@ -56,8 +56,8 @@
             </div>
             <div class="col-lg-6">
                 <ul id="additional_links">
-                    <li><a href="terminosycondiciones.php">Terminos y condiciones</a></li>
-                    <li><a href="contratacion.php">Contratación</a></li>
+                    <li><a href="{{ route('agencias.terminosycondiciones') }}">Terminos y condiciones</a></li>
+                    <li><a href="{{ route('agencias.contratacion') }}">Contratación</a></li>
                     <li><span>© 2018 by VerticeDigital.com.ar</span></li>
                 </ul>
             </div>
