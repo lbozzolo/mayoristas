@@ -6,6 +6,7 @@ use App\Entities\Continente;
 use App\Entities\NewsletterEmails;
 use App\Entities\Paquete;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ContinentesController extends BaseController
 {

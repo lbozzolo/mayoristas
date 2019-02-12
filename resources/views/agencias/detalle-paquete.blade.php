@@ -26,10 +26,12 @@
     <section class="hero_in continente"></section>
 
     <div class="bg_color_1">
+
         <nav class="secondary_nav sticky_horizontal">
-            <div class="container">
+            <div class="container margin_60_35">
+                <h3 class="nomargin-top">{!! $paquete->nombre !!}</h3>
                 <ul class="clearfix">
-                    <li><a href="#description" class="active">{!! $paquete->descripcion !!}</a></li>
+                    <li>{!! $paquete->descripcion !!}</li>
                 </ul>
             </div>
         </nav>

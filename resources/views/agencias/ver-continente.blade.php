@@ -36,7 +36,7 @@
                             <figure>
                                 @foreach($paquete->images as $imagen)
                                     @if($imagen->principal == 1)
-                                        <img src="{{ route('admin.ver.image', $imagen->path) }}" alt="" class="img-responsive">
+                                        <img src="{{ route('admin.ver.image', $imagen->path) }}" alt="" class="img-responsive" height="270">
                                     @endif
                                 @endforeach
                             </figure>
