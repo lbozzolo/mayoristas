@@ -103,4 +103,17 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('admin.panel', 'home');
     }
+
+    public function redirectPath()
+    {
+        if (property_exists($this, 'redirectPath')) {
+            return $this->redirectPath;
+        }
+
+        $redirect = property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+        $redirectMayorista = route('home');
+        $redirectAdmin = route('admin.panel', 'home');
+
+        return (Auth::user()->rol == 2)? $redirectMayorista : $redirectAdmin;
+    }
 }

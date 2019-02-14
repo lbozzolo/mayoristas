@@ -14,6 +14,16 @@
                     background-size: cover;
                 }
 
+                {{--.call_section_eventos {--}}
+                    {{--background: url({{ route('admin.ver.image', $imagen->path) }}) center center no-repeat fixed;--}}
+                    {{---webkit-background-size: cover;--}}
+                    {{---moz-background-size: cover;--}}
+                    {{---o-background-size: cover;--}}
+                    {{--background-size: cover;--}}
+                    {{--min-height: 400px;--}}
+                    {{--padding: 10% 0;--}}
+                {{--}--}}
+
             </style>
         @endif
     @endforeach
@@ -52,28 +62,28 @@
     </div>
     <!-- /container -->
 
-    <div class="bg_color_1">
-        <div class="container margin_60_35">
-            <div class="row">
+    {{--<div class="bg_color_1">--}}
+        {{--<div class="container margin_60_35">--}}
+            {{--<div class="row">--}}
 
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /bg_color_1 -->
-    <div class="call_section_eventos">
-        <div class="container clearfix">
-            <div class="col-lg-5 col-md-6 float-right wow" data-wow-offset="250">
-                <div class="block-reveal">
-                    <div class="block-vertical"></div>
-                    <div class="box_1">
-                        <h3>Ahorrá tiempo y dinero.</h3>
-                        <p>Viajar se trata de disfrutar, por eso no queremos hacerte perder tiempo. Contrata nuestros servicios vacacionales.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            {{--</div>--}}
+            {{--<!-- /row -->--}}
+        {{--</div>--}}
+        {{--<!-- /container -->--}}
+    {{--</div>--}}
+    {{--<!-- /bg_color_1 -->--}}
+    {{--<div class="call_section_eventos">--}}
+        {{--<div class="container clearfix">--}}
+            {{--<div class="col-lg-5 col-md-6 float-right wow" data-wow-offset="250">--}}
+                {{--<div class="block-reveal">--}}
+                    {{--<div class="block-vertical"></div>--}}
+                    {{--<div class="box_1">--}}
+                        {{--<h3>Ahorrá tiempo y dinero.</h3>--}}
+                        {{--<p>Viajar se trata de disfrutar, por eso no queremos hacerte perder tiempo. Contrata nuestros servicios vacacionales.</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
 @endsection

@@ -20,7 +20,8 @@ class AdminUser
             return abort(403);
         }*/
         if(Auth::user()->rol == 2){
-            return abort(403);
+            return redirect()->route('home');
+            //return abort(403);
         }
 
         return $next($request);
