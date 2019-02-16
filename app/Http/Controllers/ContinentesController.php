@@ -12,9 +12,9 @@ class ContinentesController extends BaseController
 {
     public function index()
     {
-        $homeBase = Continente::where('nombre', 'Africa')->first();
-        return redirect()->route('continentes.ver', $homeBase->id);
-
+        $homeBase = Continente::where('nombre', 'Home')->first();
+//        return redirect()->route('continentes.ver', $homeBase->id);
+        return view('agencias.home', compact('homeBase'));
     }
 
     public function indexViejo()

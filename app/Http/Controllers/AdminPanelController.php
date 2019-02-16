@@ -34,7 +34,7 @@ class AdminPanelController extends BaseController
     public function index($seccion)
     {
         $vista = 'admin/'.$seccion;
-        $homeBase = Continente::where('nombre', 'home')->first();
+        $homeBase = Continente::where('nombre', 'Home')->first();
         $data['continentes'] = $this->continenteRepo->listAll();
         $data['continents'] = Continente::with('paquetes', 'images')->get();
         $data['homeContinents'] = Paquete::with('images')->where('continente_id', $homeBase->id)->get();
@@ -313,6 +313,7 @@ class AdminPanelController extends BaseController
     public function storeImage(Request $request, $id)
     {
         //dd($request->all());
+
         if($request->seccion){
             $continente = Paquete::find($id);
         }else{

@@ -11,7 +11,9 @@
 
                         {!! Form::open(['url' => route('admin.image.store', $continent->id), 'method' => 'post', 'class' => 'form', 'enctype' => 'multipart/form-data']) !!}
 
+                        @if($continent->nombre != 'Home')
                         {!! Form::hidden('seccion', 'home') !!}
+                        @endif
 
                         <div class="input-group input-group-sm">
                             {!! Form::file('img', ['class' => 'form-control inputImage']) !!}
@@ -78,7 +80,10 @@
 
                     {!! Form::open(['url' => route('admin.image.store', $continent->id), 'method' => 'post', 'class' => 'form', 'enctype' => 'multipart/form-data']) !!}
 
-                    {!! Form::hidden('seccion', 'home') !!}
+                    @if($continent->nombre != 'Home')
+                        {!! Form::hidden('seccion', 'home') !!}
+                    @endif
+
                     <div class="input-group input-group-sm">
                         {!! Form::file('img', ['class' => 'form-control inputImage']) !!}
                         <span class="input-group-btn">

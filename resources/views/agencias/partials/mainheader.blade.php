@@ -1,7 +1,8 @@
-<header class="header menu_fixed">
+<header class="header menu_fixed" style="background-color: rgba(0,0,0,0.2); border: none">
     <div id="preloader"><div data-loader="circle-side"></div></div><!-- /Page Preload -->
     <div id="logo">
-        <a href="{{ route('continentes.ver', $continente->id) }}">
+        {{--<a href="{{ route('continentes.ver', $continente->id) }}">--}}
+        <a href="{{ route('home') }}">
             <img src="{{ asset('agencias/img/logo.png') }}" width="333" height="80" data-retina="true" alt="" class="logo_normal">
             <img src="{{ asset('agencias/img/logo_sticky.png') }}" width="333" height="80" data-retina="true" alt="" class="logo_sticky">
         </a>
